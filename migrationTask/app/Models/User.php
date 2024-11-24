@@ -2,47 +2,42 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
-class User extends Authenticatable
+class User extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    protected $table = 'user';
+    public static function get_user_byId($id){
+        $user = self::find(id:$id);
+        dd($user);
+    }
+    public static function getAll(){
+        $user = self::get();
+        dd($user);
+    }
+    public static function select_firstName(){
+        $users = self::select('firstName','mohammad');
+        dd($users);
+        // foreach($users as $user){
+        //     echo $user;
+        // }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+    }
+    public static function insertUser($table){
+        $user = self::create([
+            'firstName' => $table->firstName,
+            'lastName' => $table->lastName,
+            'phoneNumber' => $table->phoneNumber,
+            'isAdmin' => $table->isAdmin,
+            'province' => $table->province,
+            'city' => $table->city,
+            'address' => $table->address,
+            'userName' => $table->userName,
+            'email' => $table->email,
+            'password' => $table->password,
+        ]);
+        $user->save();
+        
     }
 }
