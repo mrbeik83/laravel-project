@@ -17,9 +17,10 @@ class UserController extends Controller
         User::select_firstName();
     }
     public static function insertUser(Request $request){
+        $data = $request->all();
         $table = array(
-            'firstName' => 'ali',
-            'lastName' => 'asghari',
+            'firstName' => $data['name'],
+            'lastName' => $data['family'],
             'phoneNumber' => '09155208875',
             'isAdmin' => 1,
             'province' => 'khorasan',
