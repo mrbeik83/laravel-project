@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -15,7 +16,7 @@ class UserController extends Controller
     public static function selectName(){
         User::select_firstName();
     }
-    public static function insertUser(){
+    public static function insertUser(Request $request){
         $table = array(
             'firstName' => 'ali',
             'lastName' => 'asghari',
