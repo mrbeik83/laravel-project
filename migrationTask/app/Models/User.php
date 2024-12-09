@@ -14,7 +14,6 @@ class User extends Model
     }
     public static function getAll(){
         $user = self::get();
-        dd($user);
     }
     public static function select_firstName(){
         $users = self::select('firstName','mohammad');
