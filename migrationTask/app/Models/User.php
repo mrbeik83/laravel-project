@@ -8,19 +8,18 @@ use Illuminate\Http\Request;
 class User extends Model
 {
     protected $table = 'user';
-    public static function get_user_byId($id){
-        $user = self::find(id:$id);
-        dd($user);
+    public static function getUserByID($id){
+        // $user = self::find(id:$id);
+        $user = self::find(['id' => $id])->first()->toArray();
     }
     public static function getAll(){
         $user = self::get();
     }
-    public static function select_firstName(){
-        $users = self::select('firstName','mohammad');
-        dd($users);
-        // foreach($users as $user){
-        //     echo $user;
-        // }
+    public static function getFirstName(){
+        $users = self::select('firstName')->get()->toArray();
+         foreach($users as $user){
+             echo $user['firstname'];
+         }
 
     }
     public static function insertUser($table){
