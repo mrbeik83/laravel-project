@@ -7,23 +7,18 @@ use Illuminate\Support\Facades\App;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/data',function(){
-//     dd(User::getAll());
-// });
-// Route::get('/all',function(){
-//     // return User::getAll();
-//     echo 1;
-// });
-Route::get('/search',function(){
-    return UserController::fetchAll();
-});
-// });
-Route::get('/search/id/{id}',function($id){
-    return UserController::fetch_byId($id);
-});
-Route::get('/select',function(){
-    return UserController::selectName();
-});
-Route::get('/insert',function(){
-    return UserController::insertUser();
-});
+
+Route::group(['prefix' => 'user'], function () {
+    //نمایش تمام رکورد های یک جدول
+    Route::get('/search',[UserController::class,'fetchAll'])->name('user.serch');
+    //نمایش یک رکورد از یک جدول با استفاده از آی دی
+    Route::get('/search/id',[UserController::class,'fetchById']);
+     //نمایش لیست
+    Route::get('/list', [UserController::class, 'list'])->name('user.list');
+    //اضافه کردن یوزر
+    Route::get('/register',[UserController::class,'registerForm'])->name('register_form');
+    Route::post('/register/form_submit',[UserController::class,'insertUser'])->name('insertUser');
+    });
+
+
+

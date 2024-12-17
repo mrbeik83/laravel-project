@@ -22,8 +22,9 @@ return new class extends Migration
             $table->string('city');
             $table->string('address');
             $table->string('userName')->unique();
-            $table->timestamp('deletedAt')->nullable();
-            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->string('email')->unique();
             $table->string('password');
         });

@@ -3,39 +3,35 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-
+use App\Http\Controllers\UserController;
 class User extends Model
 {
+
     protected $table = 'user';
+    protected $fillable = ['firstName','lastName','phoneNumber','isAdmin','province','city','address','userName','email','password'];
     public static function getUserByID($id){
         // $user = self::find(id:$id);
-        $user = self::find(['id' => $id])->first()->toArray();
+        $user = self::find(['id' => $id])->toArray();
+        dd($user);
     }
     public static function getAll(){
-        $user = self::get();
-    }
-    public static function getFirstName(){
-        $users = self::select('firstName')->get()->toArray();
-         foreach($users as $user){
-             echo $user['firstname'];
-         }
+        $user = self::get()->toArray();
+        return dd($user);
 
     }
-    public static function insertUser($table){
-        $user = self::create([
-            'firstName' => $table->firstName,
-            'lastName' => $table->lastName,
-            'phoneNumber' => $table->phoneNumber,
-            'isAdmin' => $table->isAdmin,
-            'province' => $table->province,
-            'city' => $table->city,
-            'address' => $table->address,
-            'userName' => $table->userName,
-            'email' => $table->email,
-            'password' => $table->password,
+    public static function insertUser($tbl){
+        self::create([
+            'firstName' => $tbl['firstName'],
+            'lastName' => $tbl['lastName'],
+            'phoneNumber' => $tbl['phoneNumber'],
+            'isAdmin' => $tbl['isAdmin'],
+            'province' => $tbl['province'],
+            'city' => $tbl['city'],
+            'address' => $tbl['address'],
+            'userName' => $tbl['userName'],
+            'email' => $tbl['email'],
+            'password' => $tbl['password'],
         ]);
-        $user->save();
-        
+        // header("location:/php/task1-main/task8%20refactor/views/Html/");
     }
 }

@@ -1,0 +1,39 @@
+.container{
+    margin: 3% auto;
+    width: 35%;
+    background-color: antiquewhite;
+    border: 3px solid black;
+    border-radius: 2%;
+}
+.form{
+    margin: 5% auto;
+    padding-right: 60px;
+    width: 90%;    
+}
+.username{
+    padding: 3px;
+}
+.username p{
+    font-size: large;
+    font-weight: bold;
+}
+.username input{
+    width: 80% ;
+    font-size: x-large;
+    
+}
+.username button{
+    width: 82%;
+    margin :20px auto;
+    font-size: x-large;
+    font-weight: bolder;
+    height: 5ch;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+.username button:hover{
+    background-color: dimgrey;
+    transition: 100ms;
+    
+}
