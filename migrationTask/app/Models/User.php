@@ -32,6 +32,6 @@ class User extends Model
             'email' => $tbl['email'],
             'password' => $tbl['password'],
         ]);
-        // header("location:/php/task1-main/task8%20refactor/views/Html/");
+        return redirect('/user/register');
     }
 }

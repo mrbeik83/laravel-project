@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\productController;
 use Illuminate\Support\Facades\App;
 
 Route::get('/', function () {
@@ -19,6 +20,11 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/register',[UserController::class,'registerForm'])->name('register_form');
     Route::post('/register/form_submit',[UserController::class,'insertUser'])->name('insertUser');
     });
+Route::group(['prefix' => 'product'] , function (){
+    Route::get('/register',[productController::class , 'createProduct'])->name('reg.product');
+    Route::post('/register',[productController::class ,'insertProduct'])->name('insertProduct');
+});    
+
 
 
 

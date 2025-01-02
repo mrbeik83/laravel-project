@@ -25,6 +25,8 @@ class UserController extends Controller
             $data['isAdmin'] = 0;
         }
         User::insertUser($data);
+
+        
         
     }
 
