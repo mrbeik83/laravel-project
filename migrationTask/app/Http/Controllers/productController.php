@@ -14,6 +14,7 @@ class productController extends Controller
     {
         $data = $request->toArray();
         product::insertProduct($data);
+        
     }
 
     /**
@@ -29,7 +30,8 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pro =  product::all()->toArray();
+        return(view('productList',compact('pro')));
     }
 
     /**
