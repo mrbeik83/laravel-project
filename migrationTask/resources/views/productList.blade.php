@@ -65,11 +65,13 @@
     <div class = "section">
     @foreach ($pro as $p) 
         <div class="product-card">
-            <img src={{ $p['picture'] }} alt="Product ">
-            <h3>{{ $p['type'] }}</h3>
-            <p>{{ $p['name'] }}</p>
-            <p class="price">{{ $p['price'] }}</p>
-            <button class="order-btn">افزودن به سبد خرید</button>
+            <form action="">
+                <img src={{ $p['picture'] }} alt="Product ">
+                <h3>{{ $p['type'] }}</h3>
+                <p>{{ $p['name'] }}</p>
+                <p class="price">{{ $p['price'] }}</p>
+                <button class="order-btn">افزودن به سبد خرید</button>
+            </form>
         </div> 
     @endforeach
     </div>

@@ -1,3 +1,5 @@
+@include('layout.header')
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -6,18 +8,12 @@
     <title>Product Creation Form</title>
     <style>
         body {
-            direction: rtl;
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
-        }
+        } 
 
-        .form-container {
+        .form-container {            
             background: #ffffff;
             padding: 20px 30px;
             border-radius: 10px;

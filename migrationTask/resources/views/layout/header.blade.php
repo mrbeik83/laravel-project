@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
+            direction: rtl;
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
             padding: 20px;
@@ -12,6 +13,7 @@
         }
         .header {
             background-color: #2E7D32;
+            margin-bottom: 50px;
             color: white;
             padding: 15px 20px;
             display: flex;
@@ -54,8 +56,8 @@
     <div class="header">
         <div class="logo">مدیریت کالا</div>
         <nav class="nav">
-            <a href="#">ثبت کالا</a>
-            <a href="#">لیست کالا</a>
+            <a href="/product/register">ثبت کالا</a>
+            <a href="/product/list">لیست کالا</a>
             <a href="#">لیست کاربران</a>
             <a href="#">لیست سفارش‌ها</a>
             <a href="#">ثبت سفارش</a>

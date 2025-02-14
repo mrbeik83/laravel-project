@@ -14,6 +14,7 @@ class productController extends Controller
     {
         $data = $request->toArray();
         product::insertProduct($data);
+        return redirect('/product/list');
         
     }
 
