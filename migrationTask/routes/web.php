@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\cart_item;
 use Illuminate\Support\Facades\App;
 
 Route::get('/', function () {
@@ -27,10 +28,14 @@ Route::group(['prefix' => 'product'] , function (){
     Route::post('/register',[productController::class ,'insertProduct'])->name('insertProduct');
     Route::get('/list',[productController::class,'Store']);
 });
-Route::get('about',function(){
-    $p = ['id'=>1,'price'=>12900,'name'=>'روسری یونیک'];
-    return view('productListTest',['product' => $p]);
-});  
+
+
+Route::group(['prefix' => 'order'],function(){
+    Route::get('/view',[cart_item::class,'viewCart']);
+    Route::post('/add',[cart_item::class,'addCart']);
+});
+
+
 
 
 
