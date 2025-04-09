@@ -1,5 +1,5 @@
-@include('layout.header')
-
+@extends('layout.master')
+@section('content')
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -82,10 +82,10 @@
         <h2>ایجاد کالا</h2>
         <form action="/product/register" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="product-code">کد کالا</label>
                 <input type="text" id="product-code" name="id" placeholder="Enter product code" required>
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="product-type">نوع کالا</label>
                 <select id="product-type" name="type" required>
@@ -119,3 +119,5 @@
     </div>
 </body>
 </html>
+@endsection
+

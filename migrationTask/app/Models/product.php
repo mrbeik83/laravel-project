@@ -8,15 +8,14 @@ class product extends Model
 {
     protected $table = 'product';
     protected $fillable = ['id','type','name','number','price','size','picture'];
-    public static function insertProduct($prd){
+    public static function insertProduct($prd,$pic){
         self::create([
-            'id' => $prd['id'],
             'type' => $prd['type'],
             'name' => $prd['name'],
             'number' => $prd['number'],
             'price' => $prd['price'],
             'size' => $prd['size'],
-            'picture' => $prd['picture']
+            'picture' => $pic
         ]);
     }
 }

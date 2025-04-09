@@ -1,3 +1,6 @@
+@extends('layout.master')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -200,3 +203,5 @@
 
 </body>
 </html>
+
+@endsection

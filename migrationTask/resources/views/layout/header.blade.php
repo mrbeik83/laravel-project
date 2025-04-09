@@ -52,7 +52,6 @@
     </style>
 </head>
 <body>
-
     <div class="header">
         <div class="logo">مدیریت کالا</div>
         <nav class="nav">
@@ -66,3 +65,4 @@
 
 </body>
 </html>
+

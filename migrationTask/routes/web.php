@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\productController;
-use App\Http\Controllers\cart_item;
+use App\Http\Controllers\OrderController;
+use App\Http\Middleware\EnsureTokenIsValid;
 use Illuminate\Support\Facades\App;
 
 Route::get('/', function () {
@@ -24,15 +25,15 @@ Route::group(['prefix' => 'user'], function () {
     //
     
 Route::group(['prefix' => 'product'] , function (){
-    Route::get('/register',[productController::class , 'createProduct'])->name('reg.product');
-    Route::post('/register',[productController::class ,'insertProduct'])->name('insertProduct');
-    Route::get('/list',[productController::class,'Store']);
+    Route::get('/register',[productController::class , 'create'])->name('product.create');
+    Route::post('/register',[productController::class ,'store'])->name('product.store');
+    Route::get('/list',[productController::class,'list'])->name('product.list');
 });
 
 
 Route::group(['prefix' => 'order'],function(){
-    Route::get('/view',[cart_item::class,'viewCart']);
-    Route::post('/add',[cart_item::class,'addCart']);
+    Route::get('/view',[OrderController::class,'viewCart']);
+    Route::post('/add',[OrderController::class,'addCart']);
 });
 
 

@@ -10,10 +10,11 @@ class productController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function insertProduct(Request $request)
+    public function store(Request $request)
     {
         $data = $request->toArray();
-        product::insertProduct($data);
+        $pic = $request->file('picture')->getClientOriginalName();
+        product::insertProduct($data,$pic);
         return redirect('/product/list');
         
     }
@@ -21,18 +22,18 @@ class productController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function createProduct()
+    public function create()
     {
-        return view("insertProduct");
+        return view("product.Create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function list(Request $request)
     {
         $pro =  product::all()->toArray();
-        return(view('productList',compact('pro')));
+        return view('product.list',compact('pro'));
     }
 
     /**
@@ -64,6 +65,6 @@ class productController extends Controller
      */
     public function destroy(product $product)
     {
-        //
+        $product->delete();
     }
 }
