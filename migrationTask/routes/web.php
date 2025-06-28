@@ -30,14 +30,4 @@ Route::group(['prefix' => 'product'] , function (){
     Route::get('/list',[productController::class,'list'])->name('product.list');
 });
 
-
-Route::group(['prefix' => 'order'],function(){
-    Route::get('/view',[OrderController::class,'viewCart']);
-    Route::post('/add',[OrderController::class,'addCart']);
-});
-
-
-
-
-
-
+require __DIR__.'/auth.php';
