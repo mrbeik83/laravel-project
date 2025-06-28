@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth\userController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\OrderController;
 use App\Http\Middleware\EnsureTokenIsValid;
@@ -19,8 +19,8 @@ Route::group(['prefix' => 'user'], function () {
      //نمایش لیست
     Route::get('/list', [UserController::class, 'list'])->name('user.list');
     //اضافه کردن یوزر
-    Route::get('/register',[userController::class,'show'])->name('register');
-    Route::post('/register',[userController::class,'register']);
+    Route::get('/register',[UserController::class,'registerForm'])->name('register_form');
+    Route::post('/register/form_submit',[UserController::class,'insertUser'])->name('insertUser');
     });
     //
     
@@ -30,14 +30,4 @@ Route::group(['prefix' => 'product'] , function (){
     Route::get('/list',[productController::class,'list'])->name('product.list');
 });
 
-
-Route::group(['prefix' => 'order'],function(){
-    Route::get('/view',[OrderController::class,'viewCart']);
-    Route::post('/add',[OrderController::class,'addCart']);
-});
-
-
-
-
-
-
+require __DIR__.'/auth.php';
